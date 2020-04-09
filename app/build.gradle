@@ -54,7 +54,8 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
 
-    //ThreeTenABP:  written by JakeWharton to use LocalDateTime with Android API < 26
+    //ThreeTenABP:  written by JakeWharton to use ThreeTen (java8 java.time package - other name is JSR310)
+    // with API < 26 - ThreeTen is just usable with API >= 26
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.3'
 
     //rxJava and android
