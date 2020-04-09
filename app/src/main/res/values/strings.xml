@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WordBook</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="add_new_word">Add new word</string>
+    <string name="words_list">Words list</string>
+    <string name="hrchy_sign"> > </string>
+    <string name="the_word_in_english">The Word (in English)</string>
+    <string name="translation">Translation</string>
+    <string name="the_word">The word</string>
+    <string name="the_translation">The translation</string>
+    <string name="save_word">Save word</string>
+</resources>
