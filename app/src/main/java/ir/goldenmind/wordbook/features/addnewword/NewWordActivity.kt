@@ -7,7 +7,6 @@ import ir.goldenmind.wordbook.R
 import ir.goldenmind.wordbook.base.BaseActivity
 import ir.goldenmind.wordbook.pojo.Word
 import kotlinx.android.synthetic.main.activity_new_word.*
-import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalDateTime
 
 
@@ -19,17 +18,11 @@ class NewWordActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
 
+        showToast("hihihihi")
+
         init()
         initButtons()
 
-    }
-
-    private fun initButtons() {
-        btnSave.setOnClickListener {
-            viewModel.saveNewWordClicked(
-                Word(etNewWord.text.toString(), etTranslation.text.toString(), LocalDateTime.now() )
-            )
-        }
     }
 
     private fun init() {
@@ -40,6 +33,14 @@ class NewWordActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(NewWordViewModel::class.java)
 
 
+    }
+
+    private fun initButtons() {
+        btnSave.setOnClickListener {
+            viewModel.saveNewWordClicked(
+                Word(etNewWord.text.toString(), etTranslation.text.toString(), LocalDateTime.now() )
+            )
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
