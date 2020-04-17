@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import ir.goldenmind.wordbook.base.BaseActivity
 import ir.goldenmind.wordbook.features.addnewword.NewWordActivity
 import ir.goldenmind.wordbook.features.wordslist.WordsListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     lateinit var drawerToggle: ActionBarDrawerToggle
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         initDrawer()
         initButtons()
+
     }
 
     private fun initButtons() {

@@ -1,16 +1,17 @@
 package ir.goldenmind.wordbook.features.addnewword
 
 import android.app.Application
+import android.content.Context
 import io.reactivex.Completable
 import ir.goldenmind.wordbook.pojo.Word
-import ir.goldenmind.wordbook.repository.db.WordBookDataBase
 
-class NewWordModel(application : Application) {
 
-    val db = WordBookDataBase.getDatabase(application)
+open class NewWordModel(context : Context) {
 
-    fun saveNewWord(word: Word): Completable {
-        return db.wordBookDao().insertWord(word)
-    }
+//    val db = WordBookDataBase.getDatabase(context)
+
+//    fun saveNewWord(word: Word): Completable {
+//        return db.wordBookDao().insertWord(word)
+//    }
 
 }
