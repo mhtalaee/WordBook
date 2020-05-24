@@ -1,8 +1,7 @@
-package ir.goldenmind.wordbook.features.addnewword
+package ir.goldenmind.wordbook.features.wordslist
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
+import android.util.Log.d
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,28 +9,41 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ir.goldenmind.wordbook.pojo.Word
 import ir.goldenmind.wordbook.repository.DataRepository
+import java.util.logging.Logger
 import javax.inject.Inject
 
-class NewWordViewModel @Inject constructor(val repository : DataRepository) : ViewModel() {
+class WordListViewModel @Inject constructor(val repository: DataRepository) : ViewModel() {
 
-    val newWordSaved = MutableLiveData<Boolean>()
-//    val repository = NewWordModel(application)
     val composite = CompositeDisposable()
+    val wordCount = MutableLiveData<Int>()
+    val wordList = MutableLiveData<List<Word>>()
 
-    fun saveNewWordClicked(word: Word) {
+    fun getCount() {
+
         composite.add(
-
-            repository.saveNewWord(word)
+            repository.getCount()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     {
-                        newWordSaved.value = true
+                        wordCount.value = it
                     },
                     {
                         Log.d("WordBookError: ", it.message)
-                    }
-                )
+                    })
+        )
+    }
+
+    fun getWordsList() {
+        composite.add(
+            repository.getSavedWords()
+                .subscribe(
+                    {
+                        wordList.value = it
+                    },
+                    {
+                        Log.d("WordBookAppError:", it.message)
+                    })
         )
     }
 
@@ -39,12 +51,5 @@ class NewWordViewModel @Inject constructor(val repository : DataRepository) : Vi
         super.onCleared()
         composite.clear()
     }
-
-    fun show() {
-
-        Log.d("ViewModel", "Tetststts")
-    }
-
-    fun getCount() = 3
 
 }

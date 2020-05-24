@@ -1,14 +1,16 @@
 package ir.goldenmind.wordbook
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import ir.goldenmind.wordbook.base.BaseActivity
 import ir.goldenmind.wordbook.features.addnewword.NewWordActivity
 import ir.goldenmind.wordbook.features.wordslist.WordsListActivity
+//import ir.goldenmind.wordbook.features.addnewword.NewWordActivity
+//import ir.goldenmind.wordbook.features.addnewword.NewWordModel
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
 

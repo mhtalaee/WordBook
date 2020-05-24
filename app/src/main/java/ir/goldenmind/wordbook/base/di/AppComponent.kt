@@ -1,15 +1,15 @@
-package ir.goldenmind.wordbook.base
+package ir.goldenmind.wordbook.base.di
 
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
-import ir.goldenmind.wordbook.base.di.ViewModelFactoryModule
-import ir.goldenmind.wordbook.base.di.ViewModelModule
+import dagger.android.support.AndroidSupportInjectionModule
+import ir.goldenmind.wordbook.base.BaseApplication
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ViewModelFactoryModule::class, ViewModelModule::class])
+@Component(modules = [AndroidSupportInjectionModule::class, ActivityBuilderModule::class, ViewModelFactoryProvider::class, RoomModule::class])
 interface AppComponent : AndroidInjector<BaseApplication> {
     /**
      * Builder to bind application to modules

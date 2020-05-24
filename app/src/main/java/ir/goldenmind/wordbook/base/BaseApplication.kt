@@ -1,8 +1,8 @@
 package ir.goldenmind.wordbook.base
 
-import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.support.DaggerApplication
+import ir.goldenmind.wordbook.base.di.DaggerAppComponent
 
 class BaseApplication : DaggerApplication() {
 
